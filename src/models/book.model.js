@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-const category_Schema = new mongoose.Schema(
+const book_Schema = new mongoose.Schema(
     {
-        category_name: {
+        book_name: {
             type: String,
             trim: true
         },
-        category_desc: {
+        book_author: {
             type: String,
             trim: true
         },
@@ -16,10 +16,9 @@ const category_Schema = new mongoose.Schema(
         }
     },
     {
-            timestamps: true,
-            versionkey: false
-    }
-);
+        timestamps: true,
+        versionkey: false
+});
 
-const category = mongoose.model("Category",category_Schema);
-module.exports = category;
+const book = mongoose.model("Book",book_Schema);
+module.exports = book;

@@ -10,7 +10,7 @@ const product_Schema = new mongoose.Schema(
             type:String,
             trim:true
         },
-        produect_price: {
+        product_price: {
             type: Number
         },
         is_active:{
