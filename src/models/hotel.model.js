@@ -1,20 +1,24 @@
 const mongoose = require("mongoose");
 
-const product_Schema = new mongoose.Schema(
+const hotel_Schema = new mongoose.Schema(
     {
-        product_name: {
+        hotel_name: {
             type:String,
             trim:true
         },
-        product_desc: {
+        hotel_address: {
             type:String,
             trim:true
         },
-        product_price: {
+        hotel_location: {
+            type:String,
+            trim:true
+        },
+        hotel_total_rooms : {
             type: Number,
             default:0
         },
-        is_active:{
+        is_active: {
             type:Boolean,
             default:true
         }
@@ -24,5 +28,5 @@ const product_Schema = new mongoose.Schema(
         versionKey:false
     });
 
-const product = mongoose.model("product",product_Schema);
-module.exports = product;
+const hotel = mongoose.model("Hotels",hotel_Schema);
+module.exports = hotel;

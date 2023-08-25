@@ -1,0 +1,54 @@
+const { Hotel } = require("../models");
+
+/**
+ * Create user
+ * @param {object} reqBody
+ * @returns {Promise<Hotel>}
+ */
+const create_hotel = async (reqBody) => {
+  return Hotel.create(reqBody);
+};
+
+/**
+ * Get user by email
+ * @param {string} hotel_name
+ * @returns {Promise<Hotel>}
+ */
+const get_hotel_by_name = async (hotel_name) => {
+    return Hotel.findOne({ hotel_name });
+  };
+
+  /**
+ * Get user by email
+ * @param {string} hotelId
+ * @returns {Promise<Hotel>}
+ */
+const get_hotel_by_id = async (hotelId) => {
+  return Hotel.findById(hotelId);
+};
+
+  /**
+ * Get user list
+ * @param {object} filter
+ * @param {object} options
+ * @returns {Promise<Hotel>}
+ */
+const get_hotel_list = async () => {
+    return Hotel.find();
+  };
+  /**
+ * Delete user
+ * @param {ObjectId} hotelId
+ * @returns {Promise<Hotel>}
+ */
+const delete_hotel = async (hotelID) => {
+  return Hotel.findByIdAndDelete(hotelID);
+};
+
+module.exports = {
+    create_hotel,
+    get_hotel_by_name,
+    get_hotel_list,
+    get_hotel_by_id,
+    delete_hotel
+}

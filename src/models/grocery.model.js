@@ -1,17 +1,21 @@
 const mongoose = require("mongoose");
 
-const product_Schema = new mongoose.Schema(
+const grocery_Schema = new mongoose.Schema(
     {
-        product_name: {
+        grocery_name: {
             type:String,
             trim:true
         },
-        product_desc: {
+        grocery_category: {
             type:String,
             trim:true
         },
-        product_price: {
-            type: Number,
+        grocery_price:{
+            type:Number,
+            default:0
+        },
+        grocery_stock:{
+            type:Number,
             default:0
         },
         is_active:{
@@ -22,7 +26,8 @@ const product_Schema = new mongoose.Schema(
     {
         timestamps:true,
         versionKey:false
-    });
+    }
+);
 
-const product = mongoose.model("product",product_Schema);
-module.exports = product;
+const grocery = mongoose.model("Grocery",grocery_Schema);
+module.exports = grocery

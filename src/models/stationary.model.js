@@ -1,17 +1,21 @@
 const mongoose = require("mongoose");
 
-const product_Schema = new mongoose.Schema(
+const stationary_Schema = new mongoose.Schema(
     {
-        product_name: {
+        item_name:{
             type:String,
             trim:true
         },
-        product_desc: {
+        item_category:{
             type:String,
             trim:true
         },
-        product_price: {
-            type: Number,
+        item_price:{
+            type:Number,
+            default:0
+        },
+        item_stock:{
+            type:Number,
             default:0
         },
         is_active:{
@@ -22,7 +26,7 @@ const product_Schema = new mongoose.Schema(
     {
         timestamps:true,
         versionKey:false
-    });
-
-const product = mongoose.model("product",product_Schema);
-module.exports = product;
+    }
+);
+const stationary = mongoose.model("Stationary",stationary_Schema);
+module.exports = stationary;
