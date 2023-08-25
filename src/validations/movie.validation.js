@@ -6,7 +6,7 @@ const create_movie = {
         movie_director: Joi.string().required().trim(),
         movie_genre: Joi.string().required().trim(),
         movie_release_date: Joi.string().required().trim(),
-        movie_rating: Joi.number().integer().required()
+        movie_rating: Joi.number().required()
     })
 }
 

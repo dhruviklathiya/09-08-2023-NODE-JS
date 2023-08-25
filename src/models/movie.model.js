@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const movie_Schema = new mongoose.Schema(
     {
         movie_title:{
-            type:String,
+        type:String,
             trim:true
         },
         movie_director:{

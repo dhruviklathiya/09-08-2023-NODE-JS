@@ -1,18 +1,21 @@
 const express = require("express");
 const validate = require("../../middlewares/validate");
 const router = express.Router();
+const { grocery_Validation } = require("../../validations")
+const { grocery_Controller } = require("../../controllers")
 
 router.get(
     "/list",
-    validate(),
+    grocery_Controller.get_grocery_list
 );
 router.post(
     "/create-grocery",
-    validate(),
+    validate(grocery_Validation.create_grocery),
+    grocery_Controller.create_grocery
 );
-router.delete(
-    "/delete-grocery/:groceryId",
-    validate(),
-);
+// router.delete(
+//     "/delete-grocery/:groceryId",
+//     validate(),
+// );
 
 module.exports = router
