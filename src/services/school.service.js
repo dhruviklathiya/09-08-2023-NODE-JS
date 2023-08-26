@@ -23,7 +23,10 @@ const get_school_by_name = async(school_name) => {
  * @returns {Promise<School>}
  */
 const get_school_list = async () => {
-    return School.find();
+    // Specific data
+    return School.find({$or:[{school_level: "Elementary"}]});
+    // All data
+    // return School.find();
 }
 
 /**

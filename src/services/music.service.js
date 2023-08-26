@@ -22,7 +22,10 @@ const create_music = async(reqbody) => {
  * @returns {Promise<Music>}
  */
 const get_music_list = async() => {
-    return Music.find();
+    // Specific data
+    return Music.find({$or:[{music_genre: "Rock"}]});
+    // All data
+    // return Music.find();
 }
 
 /**

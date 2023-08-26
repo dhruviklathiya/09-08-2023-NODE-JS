@@ -23,7 +23,10 @@ const create_movie = async(reqbody) => {
  * @returns {Promise<User>}
  */
 const get_movie_list = async() => {
-    return Movie.find();
+    // Specific data
+    return Movie.find({$or:[{movie_rating: 8.8}]});
+    // All data
+    // return Movie.find();
 }
 
 /**

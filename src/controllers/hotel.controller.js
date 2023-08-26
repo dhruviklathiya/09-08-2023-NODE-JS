@@ -29,7 +29,9 @@ const get_hotel_list = async(req,res) => {
 
         const { search, ...options } = req.query;
         const getList = await hotel_Service.get_hotel_list();
-
+        if(!getList){
+          throw new Error("Data not found!!!");
+        }
         res.status(200).json({
           success: true,
           message: "Get Hotel list successfully!",

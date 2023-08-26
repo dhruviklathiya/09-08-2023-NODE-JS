@@ -22,7 +22,10 @@ const get_travel_by_destination = async(travel_destination) => {
  * @returns {Promise<Travel>}
  */
 const get_travel_list = async() => {
-    return Travel.find();
+    // Specific data
+    return Travel.find({$or:[{travel_mode: "Flight"}]});
+    // All data
+    // return Travel.find();
 }
 
 /**

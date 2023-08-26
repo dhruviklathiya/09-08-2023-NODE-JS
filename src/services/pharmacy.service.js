@@ -23,7 +23,10 @@ const create_pharmacy = async(reqbody) => {
  * @returns {Promise<Pharmacy>}
  */
 const get_pharmacy_list = async() => {
-    return Pharmacy.find();
+    // Specific data
+    return Pharmacy.find({$or:[{pharmacy_hours: "Mon-Sun: 24/7"}]});
+    // All data
+    // return Pharmacy.find();
 }
 /**
  * Get pharmacy by pharmacy_id

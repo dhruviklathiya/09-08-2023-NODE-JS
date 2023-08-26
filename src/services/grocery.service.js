@@ -22,6 +22,9 @@ const create_grocery = async(reqbody) => {
    * @returns {Promise<Grocery>}
    */
 const get_grocery_list = async() => {
+    // Specific data
+    return Grocery.find({$or:[{grocery_category: "Dairy"}]});
+    // All data
     return Grocery.find();
 }
 

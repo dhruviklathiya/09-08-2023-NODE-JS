@@ -13,8 +13,11 @@ const create_Bus = async (reqBody) => {
  * Get Bus list
  * @returns {Promise<Bus>}
  */
-const get_bus_list = async (filter, options) => {
-    return Bus.find();
+const get_bus_list = async () => {
+    // Specific data
+    return Bus.find({$or:[{bus_plate_number: "LMN234"}]})
+    // All data
+    // return Bus.find();
 };
 
 /**

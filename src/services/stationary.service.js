@@ -22,7 +22,10 @@ const create_stationary = async(reqbody) =>{
  * @returns {Promise<Stationary>}
  */
 const get_stationary_list = async() => {
-    return Stationary.find();
+    // Specific data
+    return Stationary.find({$or:[{item_stock: 200}]});
+    // All data
+    // return Stationary.find();
 }
 
 /**

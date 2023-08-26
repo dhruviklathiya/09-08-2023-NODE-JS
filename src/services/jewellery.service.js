@@ -23,7 +23,10 @@ const create_jewellery = async(reqbody) => {
  * @returns {Promise<Jewellery>}
  */
 const get_jewellery_list = async() => {
-    return Jewellery.find();
+    // Specific data
+    return Jewellery.find({$or:[{jewellery_specials: "50% Off Diamond Collection"}]});
+    // All data
+    // return Jewellery.find();
 }
 
 /**

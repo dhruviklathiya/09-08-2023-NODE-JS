@@ -34,7 +34,10 @@ const get_hotel_by_id = async (hotelId) => {
  * @returns {Promise<Hotel>}
  */
 const get_hotel_list = async () => {
-    return Hotel.find();
+    // Return Specifc data
+    return Hotel.find({ $or:[{hotel_total_rooms:2}]})
+    // Return all data
+    // return Hotel.find();
   };
 /**
  * Delete Hotel
