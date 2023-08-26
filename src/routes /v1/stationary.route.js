@@ -16,7 +16,7 @@ router.post(
 );
 router.delete(
     "/delete-stationary/:stationaryId",
-    validate(),
+    stationary_Controller.delete_stationary
 );
 
 module.exports = router

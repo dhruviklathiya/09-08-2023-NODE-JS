@@ -13,9 +13,9 @@ router.post(
     validate(pharmacy_Validation.create_pharmacy),
     pharmacy_Controller.create_pharmacy
 );
-// router.delete(
-//     "/delete-pharmacy/:pharmacyId",
-//     validate(),
-// );
+router.delete(
+    "/delete-pharmacy/:pharmacyId",
+    pharmacy_Controller.delete_pharmacy
+);
 
 module.exports = router

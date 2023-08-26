@@ -43,7 +43,27 @@ const get_music_list = async(req,res) => {
     }
 }
 
+const delete_music = async(req,res) => {
+    try {
+        const music_id = req.params.musicId;
+        const music_exist = await music_Service.get_music_by_id(music_id);
+        if(!music_exist){
+          throw new Error("Music not found!!!");
+        }
+        await music_Service.delete_music(music_id);
+        res.status(200).json({
+          success:true,
+          message:"Music deleted successfully!!!",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
 module.exports = {
     create_music,
-    get_music_list
+    get_music_list,
+    delete_music
 }

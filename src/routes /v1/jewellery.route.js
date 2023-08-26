@@ -13,9 +13,9 @@ router.post(
     validate(jewellery_Validation.create_jewellery),
     jewellery_Controller.create_jewellery
 );
-// router.delete(
-//     "/delete-jewellery/:jewelleryId",
-//     validate(),
-// );
+router.delete(
+    "/delete-jewellery/:jewelleryId",
+    jewellery_Controller.delete_jewellery
+);
 
 module.exports = router

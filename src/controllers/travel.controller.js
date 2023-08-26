@@ -43,7 +43,28 @@ const get_travel_list = async(req,res)=> {
         });
     }
 }
+
+const delete_travel = async(req,res) => {
+    try {
+        const travel_id = req.params.travelId;
+        const travel_exist = await travel_Service.get_travel_by_id(travel_id);
+        if(!travel_exist){
+          throw new Error("Travel not found!!!");
+        }
+        await travel_Service.delete_travel(travel_id);
+        res.status(200).json({
+          success:true,
+          message:"Travel deleted successfully!!!",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
 module.exports = {
     create_travel,
-    get_travel_list
+    get_travel_list,
+    delete_travel
 }

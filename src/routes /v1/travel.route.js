@@ -13,9 +13,9 @@ router.post(
     validate(travel_Validation.create_travel),
     travel_Controller.create_travel
 );
-// router.delete(
-//     "/delete-travel/:travelId",
-//     validate(),
-// );
+router.delete(
+    "/delete-travel/:travelId",
+    travel_Controller.delete_travel
+);
 
 module.exports = router

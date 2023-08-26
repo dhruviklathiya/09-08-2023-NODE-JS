@@ -43,7 +43,28 @@ const get_movie_list = async(req,res) => {
     }
 }
 
+const delete_movie = async (req,res) => {
+    try {
+      const movie_id = req.params.movieId;
+      const movie_exist = await movie_Service.get_movie_by_id(movie_id);
+      if(!movie_exist){
+        throw new Error("Movie not found!!!");
+      }
+      await movie_Service.delete_movie(movie_id);
+      res.status(200).json({
+        success:true,
+        message:"Movie deleted successfully!!!",
+      });
+    } catch (error) {
+      res.status(400).json({
+        success:false,
+        message:error.message,
+      });
+    }
+  }
+
 module.exports = {
     create_movie,
-    get_movie_list
+    get_movie_list,
+    delete_movie
 }

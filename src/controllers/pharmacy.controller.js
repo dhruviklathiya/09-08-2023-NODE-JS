@@ -43,7 +43,28 @@ const get_pharmacy_list = async(req,res) => {
     }
 }
 
+const delete_pharmacy = async(req,res) => {
+    try {
+        const pharmacy_id = req.params.pharmacyId;
+        const pharmacy_exist = await pharmacy_Service.get_pharmacy_by_id(pharmacy_id);
+        if(!pharmacy_exist){
+          throw new Error("Pharmacy not found!!!");
+        }
+        await pharmacy_Service.delete_pharmacy(pharmacy_id);
+        res.status(200).json({
+          success:true,
+          message:"Pharmacy deleted successfully!!!",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
+
 module.exports = {
     create_pharmacy,
-    get_pharmacy_list
+    get_pharmacy_list,
+    delete_pharmacy
 }

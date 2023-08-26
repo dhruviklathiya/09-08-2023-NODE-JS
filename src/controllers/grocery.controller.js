@@ -43,7 +43,28 @@ const get_grocery_list = async(req,res) => {
     }
 }
 
+const delete_grocey = async(req,res) => {
+    try {
+        const grocery_id = req.params.groceryId;
+        const grocery_exist = await grocery_Service.get_grocery_by_id(grocery_id);
+        if(!grocery_exist){
+          throw new Error("Grocery not found!!!");
+        }
+        await grocery_Service.delete_grocery(grocery_id);
+        res.status(200).json({
+          success:true,
+          message:"Grocery deleted successfully!!!",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
+
 module.exports = {
     create_grocery,
-    get_grocery_list
+    get_grocery_list,
+    delete_grocey
 }

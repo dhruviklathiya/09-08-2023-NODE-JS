@@ -43,7 +43,27 @@ const get_jewellery_list = async(req,res) => {
     }
 }
 
+const delete_jewellery = async(req,res) => {
+    try {
+        const jewellery_id = req.params.jewelleryId;
+        const jewellery_exist = await jewellery_Service.get_jewellery_by_id(jewellery_id);
+        if(!jewellery_exist){
+          throw new Error("Jewellery not found!!!");
+        }
+        await jewellery_Service.delete_jewellery(jewellery_id);
+        res.status(200).json({
+          success:true,
+          message:"Jewellery deleted successfully!!!",
+        });
+      } catch (error) {
+        res.status(400).json({
+          success:false,
+          message:error.message,
+        });
+      }
+}
 module.exports = {
     create_jewellery,
-    get_jewellery_list
+    get_jewellery_list,
+    delete_jewellery
 }

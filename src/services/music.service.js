@@ -25,8 +25,28 @@ const get_music_list = async() => {
     return Music.find();
 }
 
+/**
+ * Get music by music_id
+ * @param {string} music_id
+ * @returns {Promise<Music>}
+ */
+const get_music_by_id = async(music_id) => {
+    return Music.findById(music_id);
+}
+
+/**
+ * Delete music
+ * @param {ObjectId} music_id
+ * @returns {Promise<Music>}
+ */
+const delete_music = async(music_id) => {
+    return Music.findByIdAndDelete(music_id);
+}
+
 module.exports = {
     get_music_by_track,
     create_music,
-    get_music_list
+    get_music_list,
+    get_music_by_id,
+    delete_music
 }

@@ -26,8 +26,27 @@ const get_movie_list = async() => {
     return Movie.find();
 }
 
+/**
+ * Get movie by movie_id
+ * @param {string} movie_id
+ * @returns {Promise<Movie>}
+ */
+const get_movie_by_id = async(movie_id) => {
+    return Movie.findById(movie_id);
+}
+
+/**
+ * Delete movie
+ * @param {ObjectId} movie_id
+ * @returns {Promise<Movie>}
+ */
+const delete_movie = async(movie_id) => {
+    return Movie.findByIdAndDelete(movie_id);
+}
 module.exports = {
     get_movie_by_title,
     create_movie,
-    get_movie_list
+    get_movie_list,
+    get_movie_by_id,
+    delete_movie
 }

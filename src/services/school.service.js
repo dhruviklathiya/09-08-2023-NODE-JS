@@ -26,8 +26,27 @@ const get_school_list = async () => {
     return School.find();
 }
 
+/**
+ * Get bus by bus_id
+ * @param {string} school_id
+ * @returns {Promise<School>}
+ */
+const get_school_by_id = async(schoold_id) => {
+    return School.findById(schoold_id)
+}
+/**
+ * Get bus by school_id
+ * @param {string} school_id
+ * @returns {Promise<School>}
+ */
+const delete_school = async(schoold_id) => {
+    return School.findByIdAndDelete(schoold_id)
+}
+
 module.exports = {
     create_school,
     get_school_by_name,
-    get_school_list
+    get_school_list,
+    get_school_by_id,
+    delete_school
 }

@@ -13,9 +13,9 @@ router.post(
     validate(school_Validation.create_school),
     school_Controller.create_school
 );
-// router.delete(
-//     "/delete-school/:schoolId",
-//     validate(),
-// );
+router.delete(
+    "/delete-school/:schoolId",
+    school_Controller.delete_school
+);
 
 module.exports = router;

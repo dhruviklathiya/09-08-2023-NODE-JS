@@ -1,5 +1,4 @@
 const { Travel } = require("../models");
-
 /**
  * Create travel
  * @param {object} reqBody
@@ -26,8 +25,27 @@ const get_travel_list = async() => {
     return Travel.find();
 }
 
+/**
+ * Get travel by travel_id
+ * @param {string} travel_id
+ * @returns {Promise<Travel>}
+ */
+const get_travel_by_id = async(travel_id) => {
+    return Travel.findById(travel_id);
+}
+/**
+ * Delete travel by travel_id
+ * @param {string} travel_id
+ * @returns {Promise<Travel>}
+ */
+const delete_travel = async(travel_id) => {
+    return Travel.findByIdAndDelete(travel_id);
+}
+
 module.exports = {
     create_travel,
     get_travel_by_destination,
-    get_travel_list
+    get_travel_list,
+    get_travel_by_id,
+    delete_travel
 }

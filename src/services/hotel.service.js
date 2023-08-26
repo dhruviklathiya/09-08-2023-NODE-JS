@@ -28,7 +28,7 @@ const get_hotel_by_id = async (hotelId) => {
 };
 
   /**
- * Get user list
+ * Get Hotel list
  * @param {object} filter
  * @param {object} options
  * @returns {Promise<Hotel>}
@@ -36,8 +36,8 @@ const get_hotel_by_id = async (hotelId) => {
 const get_hotel_list = async () => {
     return Hotel.find();
   };
-  /**
- * Delete user
+/**
+ * Delete Hotel
  * @param {ObjectId} hotelId
  * @returns {Promise<Hotel>}
  */

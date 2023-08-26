@@ -13,9 +13,9 @@ router.post(
     validate(grocery_Validation.create_grocery),
     grocery_Controller.create_grocery
 );
-// router.delete(
-//     "/delete-grocery/:groceryId",
-//     validate(),
-// );
+router.delete(
+    "/delete-grocery/:groceryId",
+    grocery_Controller.delete_grocey
+);
 
 module.exports = router

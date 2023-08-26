@@ -25,9 +25,27 @@ const create_pharmacy = async(reqbody) => {
 const get_pharmacy_list = async() => {
     return Pharmacy.find();
 }
+/**
+ * Get pharmacy by pharmacy_id
+ * @param {string} pharmacy_id
+ * @returns {Promise<Pharmacy>}
+ */
+const get_pharmacy_by_id = async(pharmacy_id) => {
+    return Pharmacy.findById(pharmacy_id);
+}
+/**
+ * Delete pharmacy by pharmacy_id
+ * @param {string} pharmacy_id
+ * @returns {Promise<Pharmacy>}
+ */
+const delete_pharmacy = async(pharmacy_id) => {
+    return Pharmacy.findByIdAndDelete(pharmacy_id);
+}
 
 module.exports = {
     get_pharma_by_name,
     create_pharmacy,
-    get_pharmacy_list
+    get_pharmacy_list,
+    get_pharmacy_by_id,
+    delete_pharmacy
 }

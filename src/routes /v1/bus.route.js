@@ -14,4 +14,9 @@ router.get(
     "/list",
     bus_Controller.get_bus_list
 )
+
+router.delete(
+    "/delete-bus/:busId",
+    bus_Controller.delete_bus
+)
 module.exports = router

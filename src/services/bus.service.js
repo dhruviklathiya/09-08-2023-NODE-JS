@@ -17,7 +17,32 @@ const get_bus_list = async (filter, options) => {
     return Bus.find();
 };
 
+/**
+ * Get bus by bus_id
+ * @param {string} bus_id
+ * @returns {Promise<Bus>}
+ */
+const get_bus_by_id = async(bus_id) => {
+    return Bus.findById(bus_id);
+}
+
+/**
+ * Delete bus
+ * @param {ObjectId} bus_id
+ * @returns {Promise<Bus>}
+ */
+const delete_bus = async(bus_id) => {
+    return Bus.findByIdAndDelete(bus_id);
+}
+
+const get_bus_by_name = async(bus_name) => {
+    return Bus.findOne({bus_name})
+}
+
 module.exports = {
     create_Bus,
-    get_bus_list
+    get_bus_list,
+    get_bus_by_id,
+    delete_bus,
+    get_bus_by_name
 }

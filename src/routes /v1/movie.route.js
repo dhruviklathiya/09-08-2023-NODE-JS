@@ -13,9 +13,9 @@ router.post(
     validate(movie_Validation.create_movie),
     movie_Controller.create_movie
 );
-// router.delete(
-//     "/delete-movie/:movieId",
-//     validate(),
-// );
+router.delete(
+    "/delete-movie/:movieId",
+    movie_Controller.delete_movie
+);
 
 module.exports = router
