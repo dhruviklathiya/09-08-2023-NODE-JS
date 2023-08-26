@@ -1,11 +1,12 @@
 const { categoryService } = require("../services");
 
-const createCategory = async (req, res) => {
+const create_category = async (req, res) => {
     try {
       const reqBody = req.body;
-
-      const category = await categoryService.createCategory(reqBody);
-
+      const category = await categoryService.create_category(reqBody);
+      if(!category){
+        throw new Error("Something went wrong!!!");
+      }
       res.status(200).json({
         success: true,
         message: "Category create successfully!",
@@ -16,11 +17,12 @@ const createCategory = async (req, res) => {
     }
 };
 
-const categoryList = async (req,res) => {
+const category_list = async (req,res) => {
     try {
-    const { search, ...options } = req.query;
-    let filter = {};
-        const categorylist = await categoryService.getCategoryList();
+        const categorylist = await categoryService.get_category_list();
+        if(!categorylist){
+          throw new Error("Data not found!!!");
+        }
         res.status(200).json({
           success: true,
           message: "Category list dispatch successfully!",
@@ -31,6 +33,6 @@ const categoryList = async (req,res) => {
     }
 }
 module.exports = {
-    createCategory,
-    categoryList
+    create_category,
+    category_list
 }

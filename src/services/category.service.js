@@ -5,7 +5,7 @@ const { Category } = require("../models");
  * @param {object} reqBody
  * @returns {Promise<Category>}
  */
-const createCategory = async (reqBody) => {
+const   create_category = async (reqBody) => {
   return Category.create(reqBody);
 };
 
@@ -15,11 +15,11 @@ const createCategory = async (reqBody) => {
  * @param {object} options
  * @returns {Promise<User>}
  */
-const getCategoryList = async () => {
+const get_category_list = async () => {
     return Category.find();
   };
 
 module.exports = {
-    createCategory,
-    getCategoryList
+    create_category,
+    get_category_list
 }

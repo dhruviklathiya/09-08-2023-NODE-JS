@@ -7,7 +7,7 @@ const router = express.Router();
 router.post(
     "/create-bus",
     validate(bus_Validation.create_bus),
-    bus_Controller.create_Bus
+    bus_Controller.create_bus
 )
 
 router.get(

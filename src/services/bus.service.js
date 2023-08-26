@@ -5,7 +5,7 @@ const { Bus } = require("../models")
  * @param {object} reqBody
  * @returns {Promise<User>}
  */
-const create_Bus = async (reqBody) => {
+const create_bus = async (reqBody) => {
  return Bus.create(reqBody);
 };
 
@@ -43,7 +43,7 @@ const get_bus_by_name = async(bus_name) => {
 }
 
 module.exports = {
-    create_Bus,
+    create_bus,
     get_bus_list,
     get_bus_by_id,
     delete_bus,

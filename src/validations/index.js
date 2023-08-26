@@ -1,7 +1,7 @@
-module.exports.userValidation = require("./user.validation");
-module.exports.categoryValidation = require("./category.validation");
+module.exports.user_Validation = require("./user.validation");
+module.exports.category_Validation = require("./category.validation");
 module.exports.tokenValidation = require("./token.validation");
-module.exports.bookValidation = require("./book.validation");
+module.exports.book_Validation = require("./book.validation");
 module.exports.hotel_Validation = require("./hotel.validation");
 module.exports.bus_Validation = require("./bus.validation");
 module.exports.stationary_Validation = require("./stationary.validation")

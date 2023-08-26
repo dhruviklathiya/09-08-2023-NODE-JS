@@ -1,13 +1,13 @@
 const { bus_Service } = require("../services")
 
-const create_Bus = async(req,res) => {
+const create_bus = async(req,res) => {
     try {
         const reqBody = req.body;
         const bus_exist = await bus_Service.get_bus_by_name(reqBody.bus_name);
         if(bus_exist){
           throw new Error("Bus by this name already exist!!!!");
         }
-        const bus = await bus_Service.create_Bus(reqBody);
+        const bus = await bus_Service.create_bus(reqBody);
 
         res.status(200).json({
           success: true,
@@ -57,7 +57,7 @@ const delete_bus = async (req,res) => {
 }
 
 module.exports = {
-  create_Bus,
+  create_bus,
   get_bus_list,
   delete_bus
 }
